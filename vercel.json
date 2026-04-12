@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "experimentalServices": {
     "frontend": {
@@ -10,4 +11,18 @@
       "routePrefix": "/_backend"
     }
   }
+=======
+{
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/",
+      "framework": "vite"
+    },
+    "backend": {
+      "entrypoint": "backend",
+      "routePrefix": "/_backend"
+    }
+  }
+>>>>>>> eaa0d19 (Lưu tạm code trước khi pull)
 }
