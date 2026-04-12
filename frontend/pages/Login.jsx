@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
@@ -30,6 +30,14 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // CHỐNG QUAY LẠI LOGIN KHI ĐÃ ĐĂNG NHẬP
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token && token !== "undefined") {
+      navigate("/Dashboard");
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -47,11 +55,12 @@ export default function Login() {
 
       if (res.ok) {
         if (isLogin) {
-          // LƯU CẢ TOKEN VÀ EMAIL VÀO LOCALSTORAGE
           localStorage.setItem("token", data.token);
           localStorage.setItem("userEmail", data.user.email); 
           alert("Đăng nhập thành công!");
-          navigate("/Dashboard"); // Chuyển về trang chủ (Dashboard)
+          
+          // QUAN TRỌNG: Điều hướng chính xác về path đã khai báo ở App.js
+          navigate("/Dashboard"); 
         } else {
           alert("Đăng ký thành công! Mời bạn đăng nhập.");
           setIsLogin(true);

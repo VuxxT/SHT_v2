@@ -293,4 +293,27 @@ code {
     right: 0;
     border-right-color: var(--border);
   }
+
+  /* Style cho bảng Markdown trả về từ AI */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+table th, table td {
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
 }

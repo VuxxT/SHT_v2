@@ -1,0 +1,33 @@
+/* src/css/dashboard.css */
+
+/* Style cho container chứa kết quả */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown-content th {
+  background-color: #10b981; /* Màu xanh lá đặc trưng cho thực đơn */
+  color: white;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.markdown-content td {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.markdown-content tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.markdown-content td:first-child {
+  font-weight: bold;
+  color: #10b981;
+}
