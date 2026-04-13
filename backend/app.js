@@ -11,10 +11,14 @@ app.use(express.json());
 
 // --- 1. KẾT NỐI DATABASE (Dùng Pool để không bị ngắt kết nối khi Deploy) ---
 const db = mysql.createPool({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "", 
-    database: process.env.DB_NAME || "sht",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD, 
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 4000,
+    ssl: {
+        rejectUnauthorized: false // Dòng này cực kỳ quan trọng để chạy trên Vercel
+    },
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
